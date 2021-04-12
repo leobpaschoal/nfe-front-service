@@ -1,0 +1,51 @@
+.upload-file {
+  width: 95%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.upload-file button {
+  margin-left: 20px;
+}
+
+.upload-file input {
+  border: 1px solid black;
+  padding: 3px;
+}
+
+table {
+  text-align: center !important;
+  width: 90%;
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+}
+
+::ng-deep .mat-sort-header-container {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-remove {
+  background-color: #d4372c;
+  border: 1px solid #d4372c;
+  margin-left: 15px;
+}
+
+.disable {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.data-table {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.paginator {
+  margin-right: 80px;
+}

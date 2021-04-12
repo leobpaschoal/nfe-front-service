@@ -1,0 +1,13 @@
+.btn-remove-dialog {
+  float: right;
+}
+
+.btn-remove {
+  background-color: #d4372c;
+  border: 1px solid #d4372c;
+  margin-left: 15px;
+}
+
+h2 {
+  border-bottom: 1px solid black;
+}

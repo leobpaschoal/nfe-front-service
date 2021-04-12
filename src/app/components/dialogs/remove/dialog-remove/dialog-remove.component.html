@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Remover</h2>
+<div mat-dialog-content>
+  Tem certeza que deseja remover o arquivo <b>{{ data.arquivo }}?</b>
+</div>
+<div class="btn-remove-dialog" mat-dialog-actions>
+  <button mat-button mat-dialog-close cdkFocusInitial>Cancelar</button>
+  <button class="btn-remove" mat-button (click)="onRemove()" cdkFocusInitial>
+    Confirmar
+  </button>
+</div>

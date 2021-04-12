@@ -1,0 +1,77 @@
+<div class="upload-file">
+  <input type="file" id="customFile" (change)="selectFile($event)" />
+  <button [disabled]="!selectedFiles" (click)="uploadNfe()">Enviar</button>
+</div>
+<div class="data-table">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="arquivo">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef>Arquivo</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.nomeArquivoOriginal }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="chave">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef>Chave</th>
+      <td mat-cell *matCellDef="let element">{{ element.chave || "-" }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeEmitente">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef>Nome Emitente</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.nomeEmitente || "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nomeDestinatario">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef>
+        Nome Destinatário
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.nomeDestinatario || "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valorNota">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef>Valor Nota</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.valorNota ? "R$ " + element.valorNota : "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-sort-header mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.status.status || "-" }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          class="{{ element.hasDuplicata ? '' : 'disable' }}"
+          (click)="callDuplicataDialog(element)"
+          [disabled]="!element.hasDuplicata"
+        >
+          Duplicatas
+        </button>
+        <button
+          class="btn-remove {{ element.canDelete ? '' : 'disable' }}"
+          [disabled]="!element.canDelete"
+          (click)="callRemoveDialog(element.id, element.nomeArquivoOriginal)"
+        >
+          Remover
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+<mat-paginator
+  [pageSizeOptions]="[10, 20, 100]"
+  showFirstLastButtons
+  class="paginator"
+></mat-paginator>

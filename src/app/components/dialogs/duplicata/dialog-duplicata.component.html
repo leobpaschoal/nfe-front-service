@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Duplicatas - {{ nfe.nomeArquivoOriginal }}</h2>
+<div mat-dialog-content>
+  <div class="duplicata">
+    <div class="header">Vencimento</div>
+    <div class="header">Parcela</div>
+    <div class="header">Valor</div>
+  </div>
+  <div *ngFor="let duplicata of nfe.duplicatas">
+    <div class="duplicata">
+      <div>{{ duplicata.vencimento | date: "dd/MM/YYYY" }}</div>
+      <div>{{ duplicata.parcela }}</div>
+      <div>R$ {{ duplicata.valor }}</div>
+    </div>
+  </div>
+  <div>
+    Valor Total: <b>R$ {{ nfe.valorNota }}</b>
+  </div>
+</div>
+<div class="btn-close" mat-dialog-actions>
+  <button mat-button mat-dialog-close cdkFocusInitial>Fechar</button>
+</div>
